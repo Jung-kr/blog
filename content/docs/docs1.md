@@ -73,10 +73,79 @@ Test 페이지
 ```
 C:\Hugo\blog> hugo server -D
 ```
-- 로컬 http://localhost:1313로 접속하고 블로그가 실제로 어떻게 보여지는지 확인할 수 있다.
+- 로컬 http://localhost:1313로 접속하고 블로그가 실제로 어떻게 보여지는지 확인할 수 있습니다.
 
 <br><br>
 
 ## 5. Github 작업
 ---
-### 5.1
+### 5.1 컨텐츠 블로그에 업로드
+- Github에서 git repository 생성합니다 (저는 blog라는 이름의 repository를 생성)
+- hugo.toml의 baseURL을 `http://<username>.github.io/<reop_name>/`으로 변경합니다
+```
+C:\Hugo\blog> git add .
+C:\Hugo\blog> commit -m "initial commit"
+C:\Hugo\blog> git branch -M main
+C:\Hugo\blog> git remote add origin https://github.com/<username>/<reop_name>
+C:\Hugo\blog> git push -u origin main
+```
+
+### 5.2 컨텐츠 배포 자동화
+- `gh.pages` 브랜치 생성
+- 생성한 repository -> Setting -> Actions -> General -> Read and write permissions 체크 후 저장합니다
+- git bash로 가서 명령어를 입력합니다
+```
+$ mkdir -p .github/workflows
+$ touch .github/workflows/deploy.yml
+$ vi .github/workflows/deploy.yml
+```
+- deploy.yml 파일에 밑의 내용 삽입합니다
+```
+name: Publish to GH Pages
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Checkout destination
+        uses: actions/checkout@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          ref: gh-pages
+          path: built-site
+
+      - name: Setup Hugo
+        run: |
+          curl -L -o /tmp/hugo.tar.gz 'https://github.com/gohugoio/hugo/releases/download/v0.110.0/hugo_extended_0.110.0_linux-amd64.tar.gz'
+          tar -C ${RUNNER_TEMP} -zxvf /tmp/hugo.tar.gz hugo          
+      - name: Build
+        run: ${RUNNER_TEMP}/hugo
+
+      - name: Deploy
+        if: github.ref == 'refs/heads/main'
+        run: |
+          cp -R public/* ${GITHUB_WORKSPACE}/built-site/
+          cd ${GITHUB_WORKSPACE}/built-site
+          git add .
+          git config user.name 'dhij'
+          git config user.email 'davidhwang.ij@gmail.com'
+          git commit -m 'Updated site'
+          git push          
+```
+- 로컬의 내용을 git repository에 push합니다
+```
+C:\Hugo\blog> git add .
+C:\Hugo\blog> commit -m "add the first page"
+C:\Hugo\blog> git push
+```
+- 배포가 정상적으로 완료됐습니다!
