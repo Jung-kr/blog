@@ -1,4 +1,4 @@
 baseURL = 'http://Jung-kr.github.io/blog/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Jung Blog'
 theme = 'PaperMod'
