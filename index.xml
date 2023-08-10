@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>My New Hugo Site</title>
+    <title>Jung Blog</title>
     <link>http://Jung-kr.github.io/blog/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <description>Recent content on Jung Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Aug 2023 16:31:10 +0900</lastBuildDate><atom:link href="http://Jung-kr.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Aug 2023 22:30:18 +0900</lastBuildDate><atom:link href="http://Jung-kr.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Github로 블로그 구축하기 (with Hugo)</title>
+      <link>http://Jung-kr.github.io/blog/docs/docs1/</link>
+      <pubDate>Thu, 10 Aug 2023 22:30:18 +0900</pubDate>
+      
+      <guid>http://Jung-kr.github.io/blog/docs/docs1/</guid>
+      <description>1. Hugo 설치 1.1 github.com/gohugoio에서 본인 OS에 맞는 버전 다운로드 저는 Window를 사용 중이라 &amp;lsquo;hugo_0.117.0_windows-amd64.zip&amp;rsquo;을 다운받았습니다 C:\Hugo\bin\ 디렉토리 생성 후 압축을 해제합니다 1.2 환경변수 설정 Window 검색창에 시스템 환경변수 편집 검색 후 오른쪽 하단 환경 변수를 클릭합니다 위 박스 Path 클릭 후 C:\Hugo\bin 추가합니다 $ hugo version으로 환경변수 설정이 잘됐는지 확인합니다 git은 이미 설치되어 있다고 가정하고 진행하겠습니다 2. 프로젝트 만들기 명령어를 통해 hugo 프로젝트를 생성합니다 C:\Hugo&amp;gt; hugo new site &amp;lt;프로젝트 이름&amp;gt; 저는 blog라는 이름으로 프로젝트를 생성했습니다</description>
+    </item>
+    
     <item>
       <title>Test</title>
       <link>http://Jung-kr.github.io/blog/docs/test/</link>
-      <pubDate>Thu, 10 Aug 2023 16:31:10 +0900</pubDate>
+      <pubDate>Thu, 10 Aug 2023 22:30:12 +0900</pubDate>
       
       <guid>http://Jung-kr.github.io/blog/docs/test/</guid>
-      <description>This is a test page. This is test page!</description>
+      <description>Test 페이지입니다. Test 페이지</description>
     </item>
     
   </channel>

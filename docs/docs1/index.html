@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Github로 블로그 구축하기 (with Hugo) | Jung Blog</title>
+<meta name="keywords" content="">
+<meta name="description" content="1. Hugo 설치 1.1 github.com/gohugoio에서 본인 OS에 맞는 버전 다운로드 저는 Window를 사용 중이라 &lsquo;hugo_0.117.0_windows-amd64.zip&rsquo;을 다운받았습니다 C:\Hugo\bin\ 디렉토리 생성 후 압축을 해제합니다 1.2 환경변수 설정 Window 검색창에 시스템 환경변수 편집 검색 후 오른쪽 하단 환경 변수를 클릭합니다 위 박스 Path 클릭 후 C:\Hugo\bin 추가합니다 $ hugo version으로 환경변수 설정이 잘됐는지 확인합니다 git은 이미 설치되어 있다고 가정하고 진행하겠습니다 2. 프로젝트 만들기 명령어를 통해 hugo 프로젝트를 생성합니다 C:\Hugo&gt; hugo new site &lt;프로젝트 이름&gt; 저는 blog라는 이름으로 프로젝트를 생성했습니다">
+<meta name="author" content="">
+<link rel="canonical" href="http://Jung-kr.github.io/blog/docs/docs1/">
+<link crossorigin="anonymous" href="/blog/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/blog/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="http://Jung-kr.github.io/blog/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://Jung-kr.github.io/blog/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://Jung-kr.github.io/blog/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://Jung-kr.github.io/blog/apple-touch-icon.png">
+<link rel="mask-icon" href="http://Jung-kr.github.io/blog/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Github로 블로그 구축하기 (with Hugo)" />
+<meta property="og:description" content="1. Hugo 설치 1.1 github.com/gohugoio에서 본인 OS에 맞는 버전 다운로드 저는 Window를 사용 중이라 &lsquo;hugo_0.117.0_windows-amd64.zip&rsquo;을 다운받았습니다 C:\Hugo\bin\ 디렉토리 생성 후 압축을 해제합니다 1.2 환경변수 설정 Window 검색창에 시스템 환경변수 편집 검색 후 오른쪽 하단 환경 변수를 클릭합니다 위 박스 Path 클릭 후 C:\Hugo\bin 추가합니다 $ hugo version으로 환경변수 설정이 잘됐는지 확인합니다 git은 이미 설치되어 있다고 가정하고 진행하겠습니다 2. 프로젝트 만들기 명령어를 통해 hugo 프로젝트를 생성합니다 C:\Hugo&gt; hugo new site &lt;프로젝트 이름&gt; 저는 blog라는 이름으로 프로젝트를 생성했습니다" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://Jung-kr.github.io/blog/docs/docs1/" /><meta property="article:section" content="docs" />
+<meta property="article:published_time" content="2023-08-10T22:30:18+09:00" />
+<meta property="article:modified_time" content="2023-08-10T22:30:18+09:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Github로 블로그 구축하기 (with Hugo)"/>
+<meta name="twitter:description" content="1. Hugo 설치 1.1 github.com/gohugoio에서 본인 OS에 맞는 버전 다운로드 저는 Window를 사용 중이라 &lsquo;hugo_0.117.0_windows-amd64.zip&rsquo;을 다운받았습니다 C:\Hugo\bin\ 디렉토리 생성 후 압축을 해제합니다 1.2 환경변수 설정 Window 검색창에 시스템 환경변수 편집 검색 후 오른쪽 하단 환경 변수를 클릭합니다 위 박스 Path 클릭 후 C:\Hugo\bin 추가합니다 $ hugo version으로 환경변수 설정이 잘됐는지 확인합니다 git은 이미 설치되어 있다고 가정하고 진행하겠습니다 2. 프로젝트 만들기 명령어를 통해 hugo 프로젝트를 생성합니다 C:\Hugo&gt; hugo new site &lt;프로젝트 이름&gt; 저는 blog라는 이름으로 프로젝트를 생성했습니다"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Docs",
+      "item": "http://Jung-kr.github.io/blog/docs/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Github로 블로그 구축하기 (with Hugo)",
+      "item": "http://Jung-kr.github.io/blog/docs/docs1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Github로 블로그 구축하기 (with Hugo)",
+  "name": "Github로 블로그 구축하기 (with Hugo)",
+  "description": "1. Hugo 설치 1.1 github.com/gohugoio에서 본인 OS에 맞는 버전 다운로드 저는 Window를 사용 중이라 \u0026lsquo;hugo_0.117.0_windows-amd64.zip\u0026rsquo;을 다운받았습니다 C:\\Hugo\\bin\\ 디렉토리 생성 후 압축을 해제합니다 1.2 환경변수 설정 Window 검색창에 시스템 환경변수 편집 검색 후 오른쪽 하단 환경 변수를 클릭합니다 위 박스 Path 클릭 후 C:\\Hugo\\bin 추가합니다 $ hugo version으로 환경변수 설정이 잘됐는지 확인합니다 git은 이미 설치되어 있다고 가정하고 진행하겠습니다 2. 프로젝트 만들기 명령어를 통해 hugo 프로젝트를 생성합니다 C:\\Hugo\u0026gt; hugo new site \u0026lt;프로젝트 이름\u0026gt; 저는 blog라는 이름으로 프로젝트를 생성했습니다",
+  "keywords": [
+    
+  ],
+  "articleBody": "1. Hugo 설치 1.1 github.com/gohugoio에서 본인 OS에 맞는 버전 다운로드 저는 Window를 사용 중이라 ‘hugo_0.117.0_windows-amd64.zip’을 다운받았습니다 C:\\Hugo\\bin\\ 디렉토리 생성 후 압축을 해제합니다 1.2 환경변수 설정 Window 검색창에 시스템 환경변수 편집 검색 후 오른쪽 하단 환경 변수를 클릭합니다 위 박스 Path 클릭 후 C:\\Hugo\\bin 추가합니다 $ hugo version으로 환경변수 설정이 잘됐는지 확인합니다 git은 이미 설치되어 있다고 가정하고 진행하겠습니다 2. 프로젝트 만들기 명령어를 통해 hugo 프로젝트를 생성합니다 C:\\Hugo\u003e hugo new site \u003c프로젝트 이름\u003e 저는 blog라는 이름으로 프로젝트를 생성했습니다\n3. 프로젝트 테마 다운로드 https://themes.gohugo.io/ 에서 테마를 선택합니다. 저는 이 테마가 마음에 드네요 README 파일에 설치 방법이 자세히 적혀있습니다\nC:\\Hugo\\blog\u003e git init C:\\Hugo\\blog\u003e git clone https://github.com/adityatelange/hugo-PaperMod themes/PaperMod --depth=1 C:\\Hugo\\blog\u003e git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod C:\\Hugo\\blog 경로 안의 hugo.toml 파일에 theme = \"\u003c테마 이름\u003e\"를 추가합니다 4. 글 생성 C:\\Hugo\\blog\u003e hugo new \u003c파일 이름\u003e hugo new docs/test.md를 입력하면 C:\\Hugo\\blog\\content\\docs 밑에 test.md 파일이 생성됩니다 --- title: \"Test\" date: 2023-08-10T22:30:12+09:00 draft: false --- ### Test 페이지입니다. Test 페이지 test.md 파일을 수정합니다 C:\\Hugo\\blog\u003e hugo server -D 로컬 http://localhost:1313로 접속하고 블로그가 실제로 어떻게 보여지는지 확인할 수 있다. 5. Github 작업 5.1 ",
+  "wordCount" : "172",
+  "inLanguage": "en",
+  "datePublished": "2023-08-10T22:30:18+09:00",
+  "dateModified": "2023-08-10T22:30:18+09:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://Jung-kr.github.io/blog/docs/docs1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Jung Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://Jung-kr.github.io/blog/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://Jung-kr.github.io/blog/" accesskey="h" title="Jung Blog (Alt + H)">Jung Blog</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Github로 블로그 구축하기 (with Hugo)
+    </h1>
+    <div class="post-meta"><span title='2023-08-10 22:30:18 +0900 +0900'>August 10, 2023</span>
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="1-hugo-설치">1. Hugo 설치<a hidden class="anchor" aria-hidden="true" href="#1-hugo-설치">#</a></h2>
+<hr>
+<h3 id="11-githubcomgohugoiohttpsgithubcomgohugoiohugoreleases에서-본인-os에-맞는-버전-다운로드">1.1 <a href="https://github.com/gohugoio/hugo/releases">github.com/gohugoio</a>에서 본인 OS에 맞는 버전 다운로드<a hidden class="anchor" aria-hidden="true" href="#11-githubcomgohugoiohttpsgithubcomgohugoiohugoreleases에서-본인-os에-맞는-버전-다운로드">#</a></h3>
+<ul>
+<li>저는 Window를 사용 중이라 &lsquo;hugo_0.117.0_windows-amd64.zip&rsquo;을 다운받았습니다</li>
+<li><code>C:\Hugo\bin\</code> 디렉토리 생성 후 압축을 해제합니다</li>
+</ul>
+<h3 id="12-환경변수-설정">1.2 환경변수 설정<a hidden class="anchor" aria-hidden="true" href="#12-환경변수-설정">#</a></h3>
+<ul>
+<li>Window 검색창에 <code>시스템 환경변수 편집</code> 검색 후 오른쪽 하단 <code>환경 변수</code>를 클릭합니다</li>
+<li>위 박스 Path 클릭 후 <code>C:\Hugo\bin</code> 추가합니다</li>
+<li><code>$ hugo version</code>으로 환경변수 설정이 잘됐는지 확인합니다</li>
+<li>git은 이미 설치되어 있다고 가정하고 진행하겠습니다</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="2-프로젝트-만들기">2. 프로젝트 만들기<a hidden class="anchor" aria-hidden="true" href="#2-프로젝트-만들기">#</a></h2>
+<hr>
+<ul>
+<li>명령어를 통해 hugo 프로젝트를 생성합니다</li>
+</ul>
+<pre tabindex="0"><code>C:\Hugo&gt; hugo new site &lt;프로젝트 이름&gt;
+</code></pre><p>저는 blog라는 이름으로 프로젝트를 생성했습니다</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="3-프로젝트-테마-다운로드">3. 프로젝트 테마 다운로드<a hidden class="anchor" aria-hidden="true" href="#3-프로젝트-테마-다운로드">#</a></h2>
+<hr>
+<ul>
+<li><a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a> 에서 테마를 선택합니다.</li>
+</ul>
+<p>저는 이 테마가 마음에 드네요
+README 파일에 설치 방법이 자세히 적혀있습니다</p>
+<pre tabindex="0"><code>C:\Hugo\blog&gt; git init
+C:\Hugo\blog&gt; git clone https://github.com/adityatelange/hugo-PaperMod themes/PaperMod --depth=1
+C:\Hugo\blog&gt; git submodule add --depth=1 https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod
+</code></pre><ul>
+<li><code>C:\Hugo\blog</code> 경로 안의 <code>hugo.toml</code> 파일에 <code>theme = &quot;&lt;테마 이름&gt;&quot;</code>를 추가합니다</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="4-글-생성">4. 글 생성<a hidden class="anchor" aria-hidden="true" href="#4-글-생성">#</a></h2>
+<hr>
+<pre tabindex="0"><code>C:\Hugo\blog&gt; hugo new &lt;파일 이름&gt;
+</code></pre><ul>
+<li><code>hugo new docs/test.md</code>를 입력하면 <code>C:\Hugo\blog\content\docs</code> 밑에 <code>test.md</code> 파일이 생성됩니다</li>
+</ul>
+<pre tabindex="0"><code>---
+title: &#34;Test&#34;
+date: 2023-08-10T22:30:12+09:00
+draft: false
+---
+
+### Test 페이지입니다.
+Test 페이지
+</code></pre><ul>
+<li><code>test.md</code> 파일을 수정합니다</li>
+</ul>
+<pre tabindex="0"><code>C:\Hugo\blog&gt; hugo server -D
+</code></pre><ul>
+<li>로컬 http://localhost:1313로 접속하고 블로그가 실제로 어떻게 보여지는지 확인할 수 있다.</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="5-github-작업">5. Github 작업<a hidden class="anchor" aria-hidden="true" href="#5-github-작업">#</a></h2>
+<hr>
+<h3 id="51">5.1<a hidden class="anchor" aria-hidden="true" href="#51">#</a></h3>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2023 <a href="http://Jung-kr.github.io/blog/">Jung Blog</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
